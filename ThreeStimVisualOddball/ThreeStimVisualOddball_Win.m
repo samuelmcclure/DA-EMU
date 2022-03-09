@@ -40,6 +40,8 @@ session.subject_gender = input('1:Woman, 2:Man, 3:No report:   ', 's');
 session.logfile_basename = strcat( ...
         'ThreeStimOddBall_', session.subject_id, '_', ...
         datestr(now, 'mm_dd_HH_MM'));
+% make sure that the log file directory exists
+mkdir(pwd, 'log');
 
 % Create a connection to the GazePoint eye tracker if the gazepoint should
 % be enabled
@@ -53,6 +55,7 @@ if session.gazepoint_enable,
     % we use the same root filename for task and eyetracking data. the
     % gazepoint data go in at .txt file with the ending 'gazepoint'
     session.gpFileName = strcat(session.logfile_basename, '_gazepoint.txt');
+    session.gpFileName = fullfile(pwd, 'log', session.gpFileName);
     ExecuteRecordGP3Data(session.session1_client, session.gpFileName);
 end;
 
@@ -296,6 +299,7 @@ function [] = SaveMatrix()
 global session;
 subject_id = num2str(session.subject_id);
 fn = strcat(session.logfile_basename, '.xls');
+fn = fullfile(pwd, 'log', fn);
 
 for p=1:session.num_trials,
    session.output(p,2) = p; 

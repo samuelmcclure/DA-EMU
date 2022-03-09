@@ -1,7 +1,7 @@
 function session = InitSession()
 
 %% Number of trials, blocks, etc.
-session.trials_per_block = 10;
+session.trials_per_block = 60;
 session.pct_standard = 0.7;
 
 session.standard_color = { [255,0,0], [0,200,0], [0,0,255] };
