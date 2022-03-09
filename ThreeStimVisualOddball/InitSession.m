@@ -37,5 +37,11 @@ session.blank = 0.7; %0.5
 session.ITI = 1;
 
 %% Gazepoint setup
+% You must have the gazepoint-matlab-toolbox stored on your computer to use
+% Gazepoint to track eye movements within this task. You can clone the 
+% reposity from this address:
+% https://github.com/RingoHHuang/gazepoint-matlab-toolbox
+% The variable session.gazepoint_path should match the location of your
+% cloned repository.
 session.gazepoint_enable = false;
 session.gazepoint_path = 'C:\Users\McClureLab\Desktop\ASU-Banner\gazepoint-matlab-toolbox\GP3_Functions\';
